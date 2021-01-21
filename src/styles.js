@@ -1,15 +1,17 @@
 const styles = {
-  prodImg: { width: "200px", height: "200px" },
+  prodImg: { height: "200px" },
   list: {
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
+    textAlign: "center",
   },
   shopImg: {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "100%",
+
+    width: "60%",
   },
   text: { textAlign: "center" },
 };
