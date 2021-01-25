@@ -4,7 +4,7 @@ import styles from "./styles.js";
 
 const Home = () => {
     const shopImg = "./RustBros.jpg",
-    const shopName = "Rust Shop"
+    const shopName = "Rust Shop",
     const shopDescription = "Everything is worthless, we still make money"
     ;
     return (
@@ -13,7 +13,7 @@ const Home = () => {
           <h4 style={styles.text}> {shopDescription} </h4>
           <img
             style={styles.shopImg}
-            alt="Rust Bros shop sign"
+            alt="Shop sign from the Rust Bros show"
             
           >{shopImg}</img>
         </div>

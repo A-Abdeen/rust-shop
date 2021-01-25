@@ -1,1 +1,1 @@
-props.x.name;
+// props.x.name;
