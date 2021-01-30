@@ -1,34 +1,34 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 body {
   color: ${(props) => props.theme.mainColor};
   background-color: ${(props) => props.theme.backgroundColor}
 }
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   text-align: center;
 `;
 
-const Description = styled.h4`
+export const Description = styled.h4`
   text-align: center;
 `;
 
-const ShopImage = styled.img`
+export const ShopImage = styled.img`
   display: block;
   margin: auto;
   width: 60%;
 `;
 
-const YardWrapper = styled.div`
+export const YardWrapper = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
 `;
 
-const CarWrapper = styled.div`
+export const CarWrapper = styled.div`
   margin: 20px;
   img {
     height: 250px;
@@ -44,4 +44,11 @@ const CarWrapper = styled.div`
   }
 `;
 
-export { GlobalStyle, Title, Description, ShopImage, YardWrapper, CarWrapper };
+export const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
+`;
