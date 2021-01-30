@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle, ThemeButton } from "./styles";
 import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
+import CarDetail from "./components/CarDetail.js";
 
 const theme = {
   dark: {
@@ -19,6 +20,7 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
+  const [car, setCar] = useState(null);
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
   const buttonText = () => {
@@ -26,12 +28,18 @@ function App() {
     else return "Too dark?";
   };
 
+  const display = car ? (
+    <CarDetail car={car} setCar={setCar} />
+  ) : (
+    <CarYard setCar={setCar} />
+  );
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <ThemeButton onClick={toggleTheme}>{buttonText()}</ThemeButton>
       <Home />
-      <CarYard />
+      {display}
     </ThemeProvider>
   );
 }

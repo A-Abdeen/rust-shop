@@ -6,7 +6,7 @@ const Car = (props) => {
   return (
     <CarWrapper>
       <p>{car.name}</p>
-      <img alt={car.name} src={car.image} />
+      <img alt={car.name} src={car.image} onClick={() => props.setCar(car)} />
       <p className="car-price"> ${car.price}</p>
     </CarWrapper>
   );
