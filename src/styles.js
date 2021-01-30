@@ -1,24 +1,47 @@
-const styles = {
-    carImg: { height: "200px", margin: "20px"
-  },
+import styled, { createGlobalStyle } from "styled-components";
 
-  list: {
-    alignItems: "center",
-    justifyContent: "center",
-    display: "flex",
-    textAlign: "center",
-  },
+const GlobalStyle = createGlobalStyle`
+body {
+  color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.backgroundColor}
+}
+`;
 
-  shopImg: {
-    display: "block",
-   
-    margin: "auto",
+const Title = styled.h1`
+  text-align: center;
+`;
 
-    width: "60%",
+const Description = styled.h4`
+  text-align: center;
+`;
 
-  },
-    text: { textAlign: "center" },
+const ShopImage = styled.img`
+  display: block;
+  margin: auto;
+  width: 60%;
+`;
 
-};
+const YardWrapper = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+`;
 
-export default styles;
+const CarWrapper = styled.div`
+  margin: 20px;
+  img {
+    height: 250px;
+    display: flex;
+  }
+
+  ,
+  p {
+    text-align: center;
+    &.car-price {
+      color: ${(props) => props.theme.rust};
+    }
+  }
+`;
+
+export { GlobalStyle, Title, Description, ShopImage, YardWrapper, CarWrapper };
