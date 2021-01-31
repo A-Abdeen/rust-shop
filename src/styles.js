@@ -81,3 +81,11 @@ export const BackButton = styled.button`
   background-color: ${(props) => props.theme.mainColor};
   color: ${(props) => props.theme.backgroundColor};
 `;
+export const DeleteButtonStyle = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 2px;
+  background-color: ${(props) => props.theme.rust};
+  color: #f3ebe4;
+`;

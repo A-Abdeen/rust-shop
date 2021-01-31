@@ -4,6 +4,7 @@ import { GlobalStyle, ThemeButton } from "./styles";
 import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
 import CarDetail from "./components/CarDetail.js";
+import cars from "./cars.js";
 
 const theme = {
   dark: {
@@ -20,6 +21,7 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
+  const [_cars, setCars] = useState(cars);
   const [car, setCar] = useState(null);
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
@@ -28,10 +30,15 @@ function App() {
     else return "Too dark?";
   };
 
+  const deleteCar = (carId) => {
+    const availableCars = _cars.filter((car) => car.id !== carId);
+    setCars(availableCars);
+  };
+
   const display = car ? (
-    <CarDetail car={car} setCar={setCar} />
+    <CarDetail car={car} setCar={setCar} deleteCar={deleteCar} />
   ) : (
-    <CarYard setCar={setCar} />
+    <CarYard cars={_cars} setCar={setCar} deleteCar={deleteCar} />
   );
 
   return (
