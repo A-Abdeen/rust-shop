@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle, ThemeButton } from "./styles";
+import { GlobalStyle } from "./styles";
 import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
 import CarDetail from "./components/CarDetail.js";
 import cars from "./cars.js";
-
+import NavBar from "./components/Navbar";
 const theme = {
   dark: {
     mainColor: "#F3EBE4",
@@ -45,9 +45,13 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>{buttonText()}</ThemeButton>
+      <NavBar
+        currentTheme={currentTheme}
+        toggleTheme={toggleTheme}
+        buttonText={buttonText}
+      />
       <Switch>
-        <Route path="/yard">{display}</Route>
+        <Route path="/car-yard">{display}</Route>
         <Route exact path="/">
           <Home />
         </Route>

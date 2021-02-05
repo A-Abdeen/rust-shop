@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 
 export const GlobalStyle = createGlobalStyle`
 body {
@@ -46,7 +47,6 @@ export const CarWrapper = styled.div`
 
 export const ThemeButton = styled.button`
   font-size: 1em;
-  margin: 1.25em;
   padding: 0.25em 1em;
   border-radius: 3px;
   background-color: ${(props) => props.theme.mainColor};
@@ -88,4 +88,23 @@ export const DeleteButtonStyle = styled.button`
   border-radius: 2px;
   background-color: ${(props) => props.theme.rust};
   color: #f3ebe4;
+`;
+export const Logo = styled(Link)`
+  padding: 0.75em;
+
+  img {
+    width: 8rem;
+  }
+`;
+export const NavStyled = styled.nav`
+  background-color: ${(props) => props.theme.backgroundColor};
+`;
+export const NavYard = styled(NavLink)`
+  padding: 0.25em 1em;
+  color: ___CSS_0___;
+
+  &.active {
+    color: ___CSS_1___;
+    background-color: ${(props) => props.theme.mainColor};
+  }
 `;
