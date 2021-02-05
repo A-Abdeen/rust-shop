@@ -8,14 +8,7 @@ const CarYard = (props) => {
 
   const carYard = props.cars
     .filter((car) => car.name.toLowerCase().includes(query))
-    .map((car) => (
-      <Car
-        car={car}
-        key={car.id}
-        setCar={props.setCar}
-        deleteCar={props.deleteCar}
-      />
-    ));
+    .map((car) => <Car car={car} key={car.id} deleteCar={props.deleteCar} />);
   return (
     <>
       <SearchBar setQuery={setQuery} />

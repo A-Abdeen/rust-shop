@@ -4,9 +4,9 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles";
 import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
-import CarDetail from "./components/CarDetail.js";
+// import CarDetail from "./components/CarDetail.js";
 import cars from "./cars.js";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 const theme = {
   dark: {
     mainColor: "#F3EBE4",
@@ -23,7 +23,6 @@ const theme = {
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
   const [_cars, setCars] = useState(cars);
-  const [car, setCar] = useState(null);
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
   const buttonText = () => {
@@ -36,11 +35,9 @@ function App() {
     setCars(availableCars);
   };
 
-  const display = car ? (
-    <CarDetail car={car} setCar={setCar} deleteCar={deleteCar} />
-  ) : (
-    <CarYard cars={_cars} setCar={setCar} deleteCar={deleteCar} />
-  );
+  // <CarDetail car={car} deleteCar={deleteCar} />
+
+  // #723624 New pallete
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
@@ -51,7 +48,9 @@ function App() {
         buttonText={buttonText}
       />
       <Switch>
-        <Route path="/car-yard">{display}</Route>
+        <Route path="/car-yard">
+          <CarYard cars={_cars} deleteCar={deleteCar} />
+        </Route>
         <Route exact path="/">
           <Home />
         </Route>

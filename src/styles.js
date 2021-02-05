@@ -101,10 +101,10 @@ export const NavStyled = styled.nav`
 `;
 export const NavYard = styled(NavLink)`
   padding: 0.25em 1em;
-  color: ___CSS_0___;
+  color: ${(props) => props.theme.mainColor};
 
   &.active {
-    color: ___CSS_1___;
+    color: ${(props) => props.theme.backgroundColor};
     background-color: ${(props) => props.theme.mainColor};
   }
 `;

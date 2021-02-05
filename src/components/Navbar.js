@@ -7,7 +7,7 @@ import darkLogo from "../DarkLogo.png";
 
 const NavBar = (props) => {
   return (
-    <NavStyled className="navbar navbar-expand-lg">
+    <NavStyled className="navbar navbar-expand">
       <Logo className="navbar-brand" to="/">
         <img
           src={props.currentTheme === "light" ? lightLogo : darkLogo}
@@ -16,7 +16,7 @@ const NavBar = (props) => {
       </Logo>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
-          <NavYard className="nav-item" to="/car-yard">
+          <NavYard className="nav-item nav" to="/car-yard">
             Car Yard
           </NavYard>
           <ThemeButton className="nav-item" onClick={props.toggleTheme}>
