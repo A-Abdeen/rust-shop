@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route, Switch } from "react-router";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, ThemeButton } from "./styles";
 import CarYard from "./components/CarYard.js";
@@ -45,8 +46,12 @@ function App() {
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <ThemeButton onClick={toggleTheme}>{buttonText()}</ThemeButton>
-      <Home />
-      {display}
+      <Switch>
+        <Route path="/yard">{display}</Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 }
