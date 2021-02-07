@@ -4,9 +4,10 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles";
 import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
-// import CarDetail from "./components/CarDetail.js";
+import CarDetail from "./components/CarDetail.js";
 import cars from "./cars.js";
 import NavBar from "./components/NavBar";
+
 const theme = {
   dark: {
     mainColor: "#F3EBE4",
@@ -35,7 +36,7 @@ function App() {
     setCars(availableCars);
   };
 
-  // <CarDetail car={car} deleteCar={deleteCar} />
+  // <CarDetail car={_car} deleteCar={deleteCar} />
 
   // #723624 New pallete
 
@@ -48,7 +49,10 @@ function App() {
         buttonText={buttonText}
       />
       <Switch>
-        <Route path="/car-yard">
+        <Route path="/cars/:carSlug">
+          <CarDetail cars={_cars} deleteCar={deleteCar} />
+        </Route>
+        <Route path="/cars">
           <CarYard cars={_cars} deleteCar={deleteCar} />
         </Route>
         <Route exact path="/">

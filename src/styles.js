@@ -19,24 +19,20 @@ export const Description = styled.h4`
 export const ShopImage = styled.img`
   display: block;
   margin: auto;
-  width: 60%;
+  width: 50%;
 `;
 
 export const YardWrapper = styled.div`
   display: flex;
-  text-align: center;
   align-items: center;
   justify-content: center;
 `;
 
 export const CarWrapper = styled.div`
-  margin: 20px;
   img {
-    height: 250px;
-    display: flex;
+    width: 80%;
   }
 
-  ,
   p {
     text-align: center;
     &.car-price {
@@ -65,8 +61,9 @@ export const DetailWrapper = styled.div`
   width: 80%;
 
   img {
-    width: 40%;
-    float: left;
+    margin: 1rem auto;
+    display: block;
+    width: 25%;
   }
 
   p {
@@ -83,7 +80,8 @@ export const BackButton = styled.button`
 `;
 export const DeleteButtonStyle = styled.button`
   font-size: 1em;
-  margin: 1.25em;
+  margin: 1.25em auto;
+  display: block;
   padding: 0.25em 1em;
   border-radius: 2px;
   background-color: ${(props) => props.theme.rust};

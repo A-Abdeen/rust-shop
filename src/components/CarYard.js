@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { YardWrapper } from "../styles.js";
+// import { YardWrapper } from "../styles.js";
 import Car from "./Car";
 import SearchBar from "./SearchBar";
 
@@ -10,10 +10,10 @@ const CarYard = (props) => {
     .filter((car) => car.name.toLowerCase().includes(query))
     .map((car) => <Car car={car} key={car.id} deleteCar={props.deleteCar} />);
   return (
-    <>
+    <div className="container">
       <SearchBar setQuery={setQuery} />
-      <YardWrapper>{carYard}</YardWrapper>
-    </>
+      <div className="row">{carYard}</div>
+    </div>
   );
 };
 

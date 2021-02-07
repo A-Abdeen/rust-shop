@@ -16,7 +16,7 @@ const NavBar = (props) => {
       </Logo>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
-          <NavYard className="nav-item nav" to="/car-yard">
+          <NavYard className="nav-item nav" to="/cars">
             Car Yard
           </NavYard>
           <ThemeButton className="nav-item" onClick={props.toggleTheme}>
