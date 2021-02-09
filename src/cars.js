@@ -4,7 +4,7 @@ import Pontiac69_GTO_Judge from "./Pontiac69_GTO_Judge.jpg";
 import Jaguar55_XK140_SE_Coupé_Michelotti_bodied from "./Jaguar55_XK140_SE_Coupé_Michelotti_bodied.jpg";
 import Plymouth68_Road_Runner from "./Plymouth68_Road_Runner.jpg";
 
-const cars = [
+const carsData = [
   {
     id: 1,
     slug: "1969-dodge-super-bee-coupé",
@@ -62,4 +62,4 @@ const cars = [
   },
 ];
 
-export default cars;
+export default carsData;

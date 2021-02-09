@@ -5,7 +5,6 @@ import { GlobalStyle } from "./styles";
 import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
 import CarDetail from "./components/CarDetail.js";
-import cars from "./cars.js";
 import NavBar from "./components/NavBar";
 
 const theme = {
@@ -23,20 +22,12 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-  const [_cars, setCars] = useState(cars);
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
   const buttonText = () => {
     if (currentTheme === "light") return "Too bright?";
     else return "Too dark?";
   };
-
-  const deleteCar = (carId) => {
-    const availableCars = _cars.filter((car) => car.id !== carId);
-    setCars(availableCars);
-  };
-
-  // <CarDetail car={_car} deleteCar={deleteCar} />
 
   // #723624 New pallete
 
@@ -50,10 +41,10 @@ function App() {
       />
       <Switch>
         <Route path="/cars/:carSlug">
-          <CarDetail cars={_cars} deleteCar={deleteCar} />
+          <CarDetail />
         </Route>
         <Route path="/cars">
-          <CarYard cars={_cars} deleteCar={deleteCar} />
+          <CarYard />
         </Route>
         <Route exact path="/">
           <Home />

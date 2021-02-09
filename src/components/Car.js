@@ -5,7 +5,7 @@ import DeleteButton from "./DeleteButton";
 
 const Car = (props) => {
   const car = props.car;
-
+  const setCar = props.setCar;
   return (
     <CarWrapper className="col-4">
       <p>{car.name}</p>
@@ -13,7 +13,7 @@ const Car = (props) => {
         <img src={car.image} alt={car.name} />
       </Link>
       <p className="car-price"> $ {car.price}</p>
-      <DeleteButton deleteCar={props.deleteCar} car={car} />
+      <DeleteButton carId={car.id} />
     </CarWrapper>
   );
 };

@@ -1,16 +1,14 @@
+import { useDispatch } from "react-redux";
+import { deleteCar } from "../store/actions.js";
 import { DeleteButtonStyle } from "../styles.js";
 
 const DeleteButton = (props) => {
-  const handleDelete = () => {
-    props.deleteCar(props.car.id);
-  };
-
-  return <DeleteButtonStyle onClick={handleDelete}>Delete</DeleteButtonStyle>;
-  // return (
-  //   <button type="button" class="btn btn-outline-danger" onClick={handleDelete}>
-  //     Delete
-  //   </button>
-  // );
+  const dispatch = useDispatch();
+  return (
+    <DeleteButtonStyle onClick={() => dispatch(deleteCar(props.carId))}>
+      Delete
+    </DeleteButtonStyle>
+  );
 };
 
 export default DeleteButton;

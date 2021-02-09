@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-// import { YardWrapper } from "../styles.js";
+import { useSelector } from "react-redux";
 import Car from "./Car";
 import SearchBar from "./SearchBar";
 
-const CarYard = (props) => {
+const CarYard = () => {
+  const cars = useSelector((state) => state.cars);
+
   const [query, setQuery] = useState("");
 
-  const carYard = props.cars
+  const carYard = cars
     .filter((car) => car.name.toLowerCase().includes(query))
-    .map((car) => <Car car={car} key={car.id} deleteCar={props.deleteCar} />);
+    .map((car) => <Car key={car.id} car={car} />);
+
   return (
     <div className="container">
       <SearchBar setQuery={setQuery} />

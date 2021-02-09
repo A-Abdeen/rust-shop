@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams, Redirect, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { DetailWrapper, BackButton } from "../styles";
 import DeleteButton from "./DeleteButton.js";
-// import cars from "../cars.js";
 
-const CarDetail = (props) => {
+const CarDetail = () => {
+  const cars = useSelector((state) => state.cars);
   const carSlug = useParams().carSlug;
-  const car = props.cars.find((car) => car.slug === carSlug);
+  const car = cars.find((car) => car.slug === carSlug);
   if (!car) return <Redirect to="/cars" />;
-
   return (
     <DetailWrapper>
       <Link to="/cars">
@@ -20,7 +20,7 @@ const CarDetail = (props) => {
       <img className="img" src={car.image} alt={car.name} />
       <p>{car.description}</p>
       <p>${car.price}</p>
-      <DeleteButton deleteCar={props.deleteCar} car={car} />
+      <DeleteButton carId={car.id} />
     </DetailWrapper>
   );
 };
