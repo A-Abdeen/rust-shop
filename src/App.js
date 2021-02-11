@@ -6,6 +6,7 @@ import CarYard from "./components/CarYard.js";
 import Home from "./components/Home.js";
 import CarDetail from "./components/CarDetail.js";
 import NavBar from "./components/NavBar";
+import CarForm from "./components/CarForm";
 
 const theme = {
   dark: {
@@ -40,6 +41,9 @@ function App() {
         buttonText={buttonText}
       />
       <Switch>
+        <Route path="/cars/new">
+          <CarForm />
+        </Route>
         <Route path="/cars/:carSlug">
           <CarDetail />
         </Route>

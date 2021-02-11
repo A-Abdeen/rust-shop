@@ -106,3 +106,12 @@ export const NavYard = styled(NavLink)`
     background-color: ${(props) => props.theme.mainColor};
   }
 `;
+export const AddButtonStyle = styled.button`
+  font-size: 1em;
+  margin: 1.25em auto;
+  display: block;
+  padding: 0.25em 1em;
+  border-radius: 2px;
+  background-color: ${(props) => props.theme.rust};
+  color: #f3ebe4;
+`;

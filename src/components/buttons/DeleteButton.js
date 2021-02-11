@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { deleteCar } from "../store/actions.js";
-import { DeleteButtonStyle } from "../styles.js";
+import { deleteCar } from "../../store/actions.js";
+import { DeleteButtonStyle } from "../../styles.js";
 
 const DeleteButton = (props) => {
   const dispatch = useDispatch();

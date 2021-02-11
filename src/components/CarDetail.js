@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Redirect, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DetailWrapper, BackButton } from "../styles";
-import DeleteButton from "./DeleteButton.js";
+import DeleteButton from "./buttons/DeleteButton.js";
 
 const CarDetail = () => {
   const cars = useSelector((state) => state.cars);
@@ -11,7 +11,7 @@ const CarDetail = () => {
   if (!car) return <Redirect to="/cars" />;
   return (
     <DetailWrapper>
-      <Link to="/cars">
+      <Link className="float-right" to="/cars">
         <BackButton>Go Back</BackButton>
       </Link>
       <h1>{car.name}</h1>

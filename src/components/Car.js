@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CarWrapper } from "../styles.js";
-import DeleteButton from "./DeleteButton";
+import DeleteButton from "./buttons/DeleteButton";
 
 const Car = (props) => {
   const car = props.car;
