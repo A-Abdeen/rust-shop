@@ -1,13 +1,13 @@
-import carsData from "../cars";
+import cars from "../cars";
 import { ADD_CAR, DELETE_CAR } from "./actions";
 
-const initialState = { cars: carsData };
+const initialState = { cars: cars };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CAR:
       return {
         ...state,
-        cars: [state.cars, action.payload.newCar],
+        cars: [...state.cars, action.payload.newCar],
       };
     case DELETE_CAR:
       return {

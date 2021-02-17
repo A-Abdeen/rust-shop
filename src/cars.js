@@ -4,7 +4,7 @@ import Pontiac69_GTO_Judge from "./Pontiac69_GTO_Judge.jpg";
 import Jaguar55_XK140_SE_Coupé_Michelotti_bodied from "./Jaguar55_XK140_SE_Coupé_Michelotti_bodied.jpg";
 import Plymouth68_Road_Runner from "./Plymouth68_Road_Runner.jpg";
 
-const carsData = [
+const cars = [
   {
     id: 1,
     slug: "1969-dodge-super-bee-coupé",
@@ -43,7 +43,7 @@ const carsData = [
     slug: "1955-jaguar-xk140-se-coupé(michelotti-bodied)",
     year: "1955",
     manufacturer: "Jaguar",
-    name: "XK140 SE Coupé (Michelotti)",
+    name: "XK140 SE Coupé",
     price: "432,500",
     image: Jaguar55_XK140_SE_Coupé_Michelotti_bodied,
     description:
@@ -62,4 +62,4 @@ const carsData = [
   },
 ];
 
-export default carsData;
+export default cars;

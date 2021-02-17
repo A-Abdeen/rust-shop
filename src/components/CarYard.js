@@ -9,7 +9,7 @@ const CarYard = () => {
   const cars = useSelector((state) => state.cars);
 
   const [query, setQuery] = useState("");
-
+  // console.log(cars);
   const carYard = cars
     .filter((car) => car.name.toLowerCase().includes(query))
     .map((car) => <Car key={car.id} car={car} />);

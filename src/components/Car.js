@@ -5,7 +5,7 @@ import DeleteButton from "./buttons/DeleteButton";
 
 const Car = (props) => {
   const car = props.car;
-  const setCar = props.setCar;
+  // const setCar = props.setCar;
   return (
     <CarWrapper className="col-4">
       <p>{car.name}</p>
