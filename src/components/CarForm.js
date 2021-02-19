@@ -1,17 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addCar } from "../store/actions";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addCar, updateCar } from "../store/actions";
+import { useHistory, useParams } from "react-router-dom";
 
 const ProductForm = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
-  const [car, setCar] = useState({
-    year: 1900,
-    manufacturer: "",
-    price: 0,
-    description: "",
-  });
+  const history = useHistory();
+  const { carSlug } = useParams();
+
+  const foundCar = useSelector((state) =>
+    state.cars.find((car) => car.slug === carSlug)
+  );
+
+  const [car, setCar] = useState(
+    foundCar ?? {
+      year: 1900,
+      manufacturer: "",
+      price: 0,
+      description: "",
+    }
+  );
 
   const handleChange = (event) =>
     setCar({ ...car, [event.target.name]: event.target.value });
@@ -21,12 +29,14 @@ const ProductForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addCar(car));
+    if (foundCar) dispatch(updateCar(car));
+    else dispatch(addCar(car));
     // resetForm();
     history.push("/cars");
   };
   return (
     <form className="container" onSubmit={handleSubmit}>
+      <h4> {foundCar ? "Edit Existing" : "Add New"} Car</h4>
       <div className="mb-3">
         <label className="form-label">Model Year</label>
         <input
@@ -88,7 +98,7 @@ const ProductForm = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary">
-        Tow to yard
+        Tow {foundCar ? "back " : " "}to yard
       </button>
     </form>
   );

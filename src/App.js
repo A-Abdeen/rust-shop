@@ -41,7 +41,7 @@ function App() {
         buttonText={buttonText}
       />
       <Switch>
-        <Route path="/cars/new">
+        <Route path={["/cars/new", "/cars/:carSlug/edit"]}>
           <CarForm />
         </Route>
         <Route path="/cars/:carSlug">

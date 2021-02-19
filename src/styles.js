@@ -115,3 +115,12 @@ export const AddButtonStyle = styled.button`
   background-color: ${(props) => props.theme.rust};
   color: #f3ebe4;
 `;
+export const UpdateButtonStyle = styled.button`
+  font-size: 1em;
+  margin: 1.25em auto;
+  display: block;
+  padding: 0.25em 1em;
+  border-radius: 2px;
+  background-color: silver;
+  color: black;
+`;

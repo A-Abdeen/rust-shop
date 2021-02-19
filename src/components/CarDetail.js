@@ -3,7 +3,7 @@ import { useParams, Redirect, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DetailWrapper, BackButton } from "../styles";
 import DeleteButton from "./buttons/DeleteButton.js";
-
+import UpdateButton from "./buttons/UpdateButton.js";
 const CarDetail = () => {
   const cars = useSelector((state) => state.cars);
   const carSlug = useParams().carSlug;
@@ -21,6 +21,7 @@ const CarDetail = () => {
       <p>{car.description}</p>
       <p>${car.price}</p>
       <DeleteButton carId={car.id} />
+      <UpdateButton slug={car.slug} />
     </DetailWrapper>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CarWrapper } from "../styles.js";
 import DeleteButton from "./buttons/DeleteButton";
+import UpdateButton from "./buttons/UpdateButton.js";
 
 const Car = (props) => {
   const car = props.car;
@@ -14,6 +15,7 @@ const Car = (props) => {
       </Link>
       <p className="car-price"> $ {car.price}</p>
       <DeleteButton carId={car.id} />
+      <UpdateButton slug={car.slug} />
     </CarWrapper>
   );
 };
