@@ -16,9 +16,13 @@ const ProductForm = () => {
   const handleChange = (event) =>
     setCar({ ...car, [event.target.name]: event.target.value });
 
+  // const resetForm = () =>
+  //   setCar({ year: 1900, manufacturer: "", price: 0, description: "" });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addCar(car));
+    // resetForm();
     history.push("/cars");
   };
   return (
