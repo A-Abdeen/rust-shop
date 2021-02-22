@@ -5,14 +5,20 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import reducer from "./store/reducer";
 import { Provider } from "react-redux";
+import { fetchCars } from "./store/actions";
+import thunk from "redux-thunk";
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// FOR REDUX DEV TOOLS
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// TO INCORPORATE THUNK (WHICH IS A MIDDLEWARE) AND DELAY THE ASYNC WHEN HANDLING FROM BACKEND
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
+// TO FETCH CARS ONE TIME ONLY (WHEN APPLICATION STARTS)
+store.dispatch(fetchCars());
 
 ReactDOM.render(
   <React.StrictMode>
