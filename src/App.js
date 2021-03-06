@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
+import { useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles";
 import CarYard from "./components/CarYard.js";
@@ -7,6 +8,9 @@ import Home from "./components/Home.js";
 import CarDetail from "./components/CarDetail.js";
 import NavBar from "./components/NavBar";
 import CarForm from "./components/CarForm";
+import ManufacturerYard from "./components/manufacturer/ManufacturerYard";
+import ManufacturerDetail from "./components/manufacturer/ManufacturerDetail";
+import ManufacturerForm from "./components/manufacturer/ManufacturerForm";
 
 const theme = {
   dark: {
@@ -29,6 +33,7 @@ function App() {
     if (currentTheme === "light") return "Too bright?";
     else return "Too dark?";
   };
+  const cars = useSelector((state) => state.cars.cars);
 
   // #723624 New pallete
 
@@ -41,14 +46,28 @@ function App() {
         buttonText={buttonText}
       />
       <Switch>
-        <Route path={["/cars/new", "/cars/:carSlug/edit"]}>
+        <Route path="/manufacturers/:manufacturerSlug">
+          <ManufacturerDetail />
+        </Route>
+        <Route path="/manufacturers/new">
+          <ManufacturerForm />
+        </Route>
+        <Route path="/manufacturers">
+          <ManufacturerYard />
+        </Route>
+        <Route
+          path={[
+            "/manufacturers/:manufacturerId/cars/new",
+            "/cars/:carSlug/edit",
+          ]}
+        >
           <CarForm />
         </Route>
         <Route path="/cars/:carSlug">
           <CarDetail />
         </Route>
         <Route path="/cars">
-          <CarYard />
+          <CarYard cars={cars} />
         </Route>
         <Route exact path="/">
           <Home />

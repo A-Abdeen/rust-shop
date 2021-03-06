@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import { DetailWrapper, BackButton } from "../styles";
 import DeleteButton from "./buttons/DeleteButton.js";
 import UpdateButton from "./buttons/UpdateButton.js";
+
 const CarDetail = () => {
-  const cars = useSelector((state) => state.cars);
   const carSlug = useParams().carSlug;
+  const cars = useSelector((state) => state.cars.cars);
   const car = cars.find((car) => car.slug === carSlug);
   if (!car) return <Redirect to="/cars" />;
   return (
@@ -16,7 +17,6 @@ const CarDetail = () => {
       </Link>
       <h1>{car.name}</h1>
       <h5>Model Year: {car.year}</h5>
-      <h6>Manufacturer: {car.manufacturer}</h6>
       <img className="img" src={car.image} alt={car.name} />
       <p>{car.description}</p>
       <p>${car.price}</p>

@@ -1,71 +1,69 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCar, updateCar } from "../store/actions/carActions";
+import { createManufacturer } from "../../store/actions/manufacturerActions";
 import { useHistory, useParams } from "react-router-dom";
 
-const CarForm = () => {
+const ManufacturerForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { carSlug, manufacturerId } = useParams();
-
-  const foundCar = useSelector((state) =>
-    state.cars.cars.find((car) => car.slug === carSlug)
+  const { manufacturerSlug } = useParams();
+  const foundManufacturer = useSelector((state) =>
+    state.manufacturers.manufacturers.find(
+      (manufacturer) => manufacturer.slug === manufacturerSlug
+    )
   );
 
-  const [car, setCar] = useState(
-    foundCar || {
-      manufacturerId: manufacturerId,
-      name: "",
-      year: 1900,
-      price: 0,
-      description: "",
-      image: "",
-    }
-  );
+  const [manufacturer, setManufacturer] = useState({
+    year: 1900,
+    name: "",
+    country: "",
+    description: "",
+  });
 
   const handleChange = (event) =>
-    setCar({ ...car, [event.target.name]: event.target.value });
+    setManufacturer({
+      ...manufacturer,
+      [event.target.name]: event.target.value,
+    });
 
   const handleImage = (event) =>
-    setCar({ ...car, image: event.target.files[0] });
+    setManufacturer({ ...manufacturer, image: event.target.files[0] });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (foundCar) dispatch(updateCar(car));
-    else dispatch(addCar(car));
-    history.push("/cars");
+    dispatch(createManufacturer(manufacturer));
+    history.push("/manufacturers");
   };
-
   return (
     <form className="container" onSubmit={handleSubmit}>
-      <h4> {foundCar ? "Edit Existing" : "Add New"} Car</h4>
+      <h4> Create Manufacturer</h4>
       <div className="mb-3">
-        <label className="form-label">Model Name</label>
+        <label className="form-label">Name</label>
         <input
           type="text"
-          value={car.name}
+          value={manufacturer.name}
           onChange={handleChange}
           name="name"
           className="form-control"
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">Model Year</label>
+        <label className="form-label">Country</label>
         <input
-          type="number"
-          value={car.year}
+          type="text"
+          value={manufacturer.country}
           onChange={handleChange}
-          name="year"
+          name="country"
           className="form-control"
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">Price</label>
+        <label className="form-label">Established </label>
         <input
           type="number"
-          value={car.price}
+          value={manufacturer.year}
           onChange={handleChange}
-          name="price"
+          name="year"
           className="form-control"
         />
       </div>
@@ -73,14 +71,14 @@ const CarForm = () => {
         <label className="form-label">Description</label>
         <input
           type="text"
-          value={car.description}
+          value={manufacturer.description}
           onChange={handleChange}
           name="description"
           className="form-control"
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">Image</label>
+        <label className="form-label">Logo</label>
         <input
           type="file"
           onChange={handleImage}
@@ -89,10 +87,10 @@ const CarForm = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary">
-        Tow {foundCar ? "back " : " "}to yard
+        Create
       </button>
     </form>
   );
 };
 
-export default CarForm;
+export default ManufacturerForm;

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteCar } from "../../store/actions.js";
+import { deleteCar } from "../../store/actions/carActions";
 import { DeleteButtonStyle } from "../../styles.js";
 
 const DeleteButton = (props) => {
@@ -10,5 +10,4 @@ const DeleteButton = (props) => {
     </DeleteButtonStyle>
   );
 };
-
 export default DeleteButton;

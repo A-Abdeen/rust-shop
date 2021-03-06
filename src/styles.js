@@ -28,7 +28,7 @@ export const YardWrapper = styled.div`
   justify-content: center;
 `;
 
-export const CarWrapper = styled.div`
+export const ItemWrapper = styled.div`
   img {
     width: 80%;
   }
