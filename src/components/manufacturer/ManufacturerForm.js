@@ -7,6 +7,7 @@ const ManufacturerForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { manufacturerSlug } = useParams();
+  // Where is this going??
   const foundManufacturer = useSelector((state) =>
     state.manufacturers.manufacturers.find(
       (manufacturer) => manufacturer.slug === manufacturerSlug
